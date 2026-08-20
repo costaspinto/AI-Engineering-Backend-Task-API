@@ -93,7 +93,13 @@ AI-Engineering-Backend-Task-API/
 │
 ├── .gitignore
 ├── main.py
-└── README.md
+├── README.md
+└── screenshots/
+    ├── swagger-overview.png
+    ├── post-201-created.png
+    ├── put-200-updated.png
+    ├── delete-204-no-content.png
+    └── 404-not-found.png
 ```
 
 ## Local Setup
@@ -149,9 +155,27 @@ http://localhost:8000/docs
 
 Use **Try it out** to test the complete CRUD workflow.
 
-### Swagger Screenshot
+### Swagger API Overview
 
-_Add the final Swagger CRUD screenshot here before submission._
+![Swagger API Overview](screenshots/swagger-overview.png)
+
+### CRUD Verification
+
+#### Create — `201 Created`
+
+![POST 201 Created](screenshots/post-201-created.png)
+
+#### Update — `200 OK`
+
+![PUT 200 Updated](screenshots/put-200-updated.png)
+
+#### Delete — `204 No Content`
+
+![DELETE 204 No Content](screenshots/delete-204-no-content.png)
+
+### Error Handling — `404 Not Found`
+
+![404 Not Found](screenshots/404-not-found.png)
 
 ## Example Requests
 
@@ -170,7 +194,7 @@ curl -i http://localhost:8000/tasks/1
 ### Create a task
 
 ```bash
-curl -i -X POST http://localhost:8000/tasks -H "Content-Type: application/json" -d "{"title":"Learn API Testing","done":false}"
+curl -i -X POST http://localhost:8000/tasks -H "Content-Type: application/json" -d '{"title":"Learn API Testing","done":false}'
 ```
 
 Expected:
@@ -179,10 +203,19 @@ Expected:
 HTTP/1.1 201 Created
 ```
 
+### Verified `curl -i` Output
+
+```text
+HTTP/1.1 201 Created
+content-type: application/json
+
+{"id":4,"title":"Learn API Testing","done":false}
+```
+
 ### Update a task
 
 ```bash
-curl -i -X PUT http://localhost:8000/tasks/1 -H "Content-Type: application/json" -d "{"title":"Learn FastAPI Properly","done":true}"
+curl -i -X PUT http://localhost:8000/tasks/1 -H "Content-Type: application/json" -d '{"title":"Learn FastAPI Properly","done":true}'
 ```
 
 ### Delete a task
