@@ -1,43 +1,34 @@
 # AI Engineering Backend Task API
 
-A production-oriented RESTful CRUD API built with **Python and FastAPI** as part of the **FlyRank AI Engineering Internship — Week 2, Task 1**.
+A production-oriented RESTful CRUD API built with **Python and FastAPI** as part of the FlyRank AI Engineering Internship — Week 2, Task 1.
 
 ## Project Overview
 
-This project implements a task-management REST API supporting:
-
-* Create, read, update, and delete operations
-* Request validation with Pydantic
-* Appropriate HTTP status codes
-* Meaningful error handling
-* In-memory task storage
-* Interactive Swagger/OpenAPI documentation
-* Incremental Git-based development
+This project implements a task-management REST API supporting task creation, retrieval, updating, deletion, request validation, HTTP status codes, error handling, in-memory storage, Swagger/OpenAPI documentation, and Git-based development.
 
 The application intentionally uses **in-memory storage** rather than a database, following the Week 2 assignment scope.
 
 ## Objectives
 
-* Design RESTful API endpoints.
-* Implement complete CRUD functionality.
-* Apply appropriate HTTP status codes.
-* Validate incoming API requests.
-* Handle missing resources with meaningful errors.
-* Document and test the API using Swagger UI.
-* Demonstrate incremental Git-based development.
-* Maintain a clean and traceable engineering workflow.
+- Design RESTful API endpoints.
+- Implement complete CRUD functionality.
+- Apply appropriate HTTP status codes.
+- Validate incoming API requests.
+- Handle missing resources with meaningful errors.
+- Document and test an API using Swagger UI.
+- Demonstrate incremental Git-based development.
 
 ## Technology Stack
 
-| Technology           | Purpose                            |
-| -------------------- | ---------------------------------- |
-| Python 3.12          | Programming language               |
-| FastAPI              | Backend web framework              |
-| Pydantic             | Request validation and data models |
-| Uvicorn              | ASGI development server            |
-| Swagger UI / OpenAPI | Interactive API documentation      |
-| Git                  | Version control                    |
-| GitHub               | Repository hosting                 |
+| Technology | Purpose |
+|---|---|
+| Python 3.12 | Programming language |
+| FastAPI | Backend web framework |
+| Pydantic | Request validation and data models |
+| Uvicorn | ASGI development server |
+| Swagger UI / OpenAPI | Interactive API documentation |
+| Git | Version control |
+| GitHub | Repository hosting |
 
 ## Architecture
 
@@ -59,15 +50,15 @@ HTTP Response
 
 ## API Endpoints
 
-| Method | Endpoint           | Description             | Success | Error |
-| ------ | ------------------ | ----------------------- | ------- | ----- |
-| GET    | `/`                | API information         | 200     | —     |
-| GET    | `/health`          | Health check            | 200     | —     |
-| GET    | `/tasks`           | Retrieve all tasks      | 200     | —     |
-| GET    | `/tasks/{task_id}` | Retrieve one task       | 200     | 404   |
-| POST   | `/tasks`           | Create a new task       | 201     | 400   |
-| PUT    | `/tasks/{task_id}` | Update an existing task | 200     | 404   |
-| DELETE | `/tasks/{task_id}` | Delete a task           | 204     | 404   |
+| Method | Endpoint | Description | Success | Error |
+|---|---|---|---|---|
+| GET | `/` | API information | 200 | — |
+| GET | `/health` | Health check | 200 | — |
+| GET | `/tasks` | Retrieve all tasks | 200 | — |
+| GET | `/tasks/{task_id}` | Retrieve one task | 200 | 404 |
+| POST | `/tasks` | Create a new task | 201 | 400 |
+| PUT | `/tasks/{task_id}` | Update an existing task | 200 | 400 / 404 |
+| DELETE | `/tasks/{task_id}` | Delete a task | 204 | 404 |
 
 ## Data Model
 
@@ -79,21 +70,21 @@ HTTP Response
 }
 ```
 
-| Field   | Type    | Description            |
-| ------- | ------- | ---------------------- |
-| `id`    | Integer | Unique task identifier |
-| `title` | String  | Task title             |
-| `done`  | Boolean | Completion status      |
+| Field | Type | Description |
+|---|---|---|
+| `id` | Integer | Unique task identifier |
+| `title` | String | Task title |
+| `done` | Boolean | Completion status |
 
 ## HTTP Status Codes
 
-| Status | Meaning     | Usage                    |
-| ------ | ----------- | ------------------------ |
-| 200    | OK          | Successful read/update   |
-| 201    | Created     | Successful task creation |
-| 204    | No Content  | Successful deletion      |
-| 400    | Bad Request | Invalid request data     |
-| 404    | Not Found   | Task does not exist      |
+| Status | Meaning | Usage |
+|---|---|---|
+| 200 | OK | Successful read/update |
+| 201 | Created | Successful task creation |
+| 204 | No Content | Successful deletion |
+| 400 | Bad Request | Invalid request data |
+| 404 | Not Found | Task does not exist |
 
 ## Project Structure
 
@@ -102,25 +93,19 @@ AI-Engineering-Backend-Task-API/
 │
 ├── .gitignore
 ├── main.py
-├── README.md
-└── screenshots/
-    ├── swagger-overview.png
-    ├── post-201-created.png
-    ├── put-200-updated.png
-    ├── delete-204-no-content.png
-    └── 404-not-found.png
+└── README.md
 ```
 
 ## Local Setup
 
-### 1. Clone the Repository
+### 1. Clone
 
 ```bash
 git clone https://github.com/costaspinto/AI-Engineering-Backend-Task-API.git
 cd AI-Engineering-Backend-Task-API
 ```
 
-### 2. Create a Virtual Environment
+### 2. Create a virtual environment
 
 Windows PowerShell:
 
@@ -128,13 +113,13 @@ Windows PowerShell:
 python -m venv .venv
 ```
 
-### 3. Activate the Virtual Environment
+### 3. Activate it
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-### 4. Install Dependencies
+### 4. Install dependencies
 
 ```powershell
 python -m pip install fastapi uvicorn
@@ -146,7 +131,7 @@ python -m pip install fastapi uvicorn
 uvicorn main:app --reload
 ```
 
-The API will be available at:
+API:
 
 ```text
 http://localhost:8000
@@ -162,48 +147,30 @@ Open:
 http://localhost:8000/docs
 ```
 
-Use **Try it out** in Swagger UI to execute and verify the API endpoints.
+Use **Try it out** to test the complete CRUD workflow.
 
-### Swagger API Overview
+### Swagger Screenshot
 
-![Swagger API Overview](screenshots/swagger-overview.png)
-
-### CRUD Verification
-
-#### Create — `201 Created`
-
-![POST 201 Created](screenshots/post-201-created.png)
-
-#### Update — `200 OK`
-
-![PUT 200 Updated](screenshots/put-200-updated.png)
-
-#### Delete — `204 No Content`
-
-![DELETE 204 No Content](screenshots/delete-204-no-content.png)
-
-### Error Handling — `404 Not Found`
-
-![404 Not Found](screenshots/404-not-found.png)
+_Add the final Swagger CRUD screenshot here before submission._
 
 ## Example Requests
 
-### Get All Tasks
+### Get all tasks
 
 ```bash
 curl -i http://localhost:8000/tasks
 ```
 
-### Get One Task
+### Get one task
 
 ```bash
 curl -i http://localhost:8000/tasks/1
 ```
 
-### Create a Task
+### Create a task
 
 ```bash
-curl -i -X POST http://localhost:8000/tasks -H "Content-Type: application/json" -d '{"title":"Learn API Testing","done":false}'
+curl -i -X POST http://localhost:8000/tasks -H "Content-Type: application/json" -d "{"title":"Learn API Testing","done":false}"
 ```
 
 Expected:
@@ -212,19 +179,13 @@ Expected:
 HTTP/1.1 201 Created
 ```
 
-### Update a Task
+### Update a task
 
 ```bash
-curl -i -X PUT http://localhost:8000/tasks/1 -H "Content-Type: application/json" -d '{"title":"Learn FastAPI Properly","done":true}'
+curl -i -X PUT http://localhost:8000/tasks/1 -H "Content-Type: application/json" -d "{"title":"Learn FastAPI Properly","done":true}"
 ```
 
-Expected:
-
-```text
-HTTP/1.1 200 OK
-```
-
-### Delete a Task
+### Delete a task
 
 ```bash
 curl -i -X DELETE http://localhost:8000/tasks/1
@@ -246,21 +207,13 @@ Example:
 curl -i http://localhost:8000/tasks/99
 ```
 
-Expected response:
+The response identifies the missing task instead of incorrectly returning `200`.
 
-```json
-{
-  "detail": "Task 99 not found"
-}
-```
+## Validation
 
-The API therefore distinguishes missing resources from successful requests rather than incorrectly returning `200 OK`.
+Incoming task data is validated with Pydantic models.
 
-## Request Validation
-
-Incoming task data is validated using Pydantic models.
-
-Example request:
+Example:
 
 ```json
 {
@@ -268,11 +221,6 @@ Example request:
   "done": false
 }
 ```
-
-The API expects:
-
-* `title` as a string
-* `done` as a boolean
 
 ## In-Memory Storage
 
@@ -286,13 +234,11 @@ FastAPI
 Python list
 ```
 
-Because the application uses in-memory storage, data is reset whenever the server restarts.
-
-This is intentional and aligned with the assignment scope. Persistent database storage is identified as a future enhancement.
+Data is lost when the server restarts. This is intentional for the assignment; persistent database storage is a future extension.
 
 ## Development Workflow
 
-The API was developed incrementally, with each stage implemented and tested before moving to the next stage.
+The API was developed incrementally and each stage was tested before moving forward.
 
 ```text
 Stage 0: hello server
@@ -301,133 +247,89 @@ Stage 2: read task endpoints
 Stage 3: create task endpoint
 Stage 4: update task endpoint
 Stage 5: delete task endpoint
-Stage 6: project documentation and submission assets
 ```
 
-This approach creates a traceable Git history instead of relying on one large final-state commit.
-
-## Git Commit History
-
-The repository contains **7 meaningful development stages** covering the implementation from the initial server through documentation:
-
-```text
-Stage 0: hello server
-Stage 1: root and health endpoints
-Stage 2: read task endpoints
-Stage 3: create task endpoint
-Stage 4: update task endpoint
-Stage 5: delete task endpoint
-Stage 6: add project documentation
-```
-
-The staged workflow demonstrates incremental backend development, testing, and documentation.
+This creates a traceable Git history rather than one large final-state commit.
 
 ## Testing Performed
 
-The API was manually tested through Swagger UI.
+The following were manually verified through Swagger UI:
 
-Verified functionality includes:
-
-* Root endpoint → `200 OK`
-* Health endpoint → `200 OK`
-* Retrieve all tasks → `200 OK`
-* Retrieve an individual task → `200 OK`
-* Retrieve an unknown task → `404 Not Found`
-* Create a task → `201 Created`
-* Retrieve the newly created task
-* Update an existing task → `200 OK`
-* Update an unknown task → `404 Not Found`
-* Delete an existing task → `204 No Content`
-* Delete an unknown task → `404 Not Found`
+- Root endpoint
+- Health endpoint
+- Retrieve all tasks
+- Retrieve individual task
+- Unknown task → 404
+- Create task → 201
+- Retrieve newly created task
+- Update existing task → 200
+- Update unknown task → 404
+- Delete existing task → 204
+- Delete unknown task → 404
 
 ## Key Backend Concepts Demonstrated
 
-* RESTful API design
-* HTTP methods
-* CRUD operations
-* Request validation
-* Pydantic data models
-* HTTP status codes
-* Error handling
-* OpenAPI / Swagger documentation
-* In-memory data management
-* FastAPI route design
-* Incremental Git development
-* API testing
+- RESTful API design
+- HTTP methods
+- Request validation
+- HTTP status codes
+- Error handling
+- CRUD operations
+- OpenAPI / Swagger documentation
+- In-memory data management
+- Incremental Git development
 
 ## Engineering Decisions
 
 ### Why FastAPI?
 
-FastAPI was selected because it provides:
-
-* Python-based backend development
-* Type-hint-driven request validation
-* Pydantic integration
-* Automatic OpenAPI schema generation
-* Built-in Swagger UI
-* Clear and concise route definitions
-* Strong suitability for modern AI/ML backend services
+FastAPI provides Python-based API development, type-hint-driven validation, automatic OpenAPI documentation, built-in Swagger UI, and clear route definitions.
 
 ### Why In-Memory Storage?
 
-The assignment focuses on implementing and validating CRUD request-response behavior without introducing database complexity.
-
-An in-memory Python list therefore provides the required persistence model for the scope of this task.
+The assignment focuses on CRUD and request-response behavior before introducing persistent storage.
 
 ### Why Incremental Commits?
 
-Each major backend capability was developed as a separate stage.
-
-This makes the Git history easier to review and demonstrates an engineering workflow based on incremental implementation and verification.
+Each assignment stage was implemented, tested, and committed separately to maintain a traceable development history.
 
 ## Limitations
 
-This implementation intentionally does not include:
-
-* Persistent database storage
-* Authentication or authorization
-* Automated unit/integration test suite
-* Pagination
-* Filtering
-* Production deployment
-* Advanced logging
-* Environment-based configuration
-
-The limitations are consistent with the scope of the assignment.
+- No persistent database
+- No authentication or authorization
+- No automated test suite
+- No pagination or filtering
+- No production deployment
+- Data resets when the server restarts
 
 ## Future Improvements
 
-Potential production-oriented extensions include:
-
-* PostgreSQL integration
-* SQLAlchemy or SQLModel
-* Authentication and authorization
-* Automated unit and integration tests
-* Docker containerization
-* CI/CD pipeline
-* Pagination and filtering
-* Structured logging
-* Environment-based configuration
-* Production deployment
-* API versioning
-* Database migrations
-* Monitoring and observability
+- PostgreSQL integration
+- SQLAlchemy or SQLModel
+- Authentication and authorization
+- Automated unit and integration tests
+- Docker containerization
+- CI/CD pipeline
+- Pagination and filtering
+- Structured logging
+- Environment-based configuration
+- Production deployment
+- API versioning
 
 ## Internship Context
 
-**Program:** FlyRank AI Engineering Internship
-**Track:** Backend Engineering
-**Week:** 2
+**Program:** FlyRank AI Engineering Internship  
+**Track:** Backend Engineering  
+**Week:** 2  
 **Assignment:** A1 — Build Your First CRUD API
 
-This project demonstrates the transition from understanding HTTP request-response concepts to implementing, testing, documenting, and version-controlling a functional backend API.
+This project demonstrates the transition from understanding HTTP request-response concepts to implementing a functional backend API.
 
 ## Author
 
 **Costas Pinto**
 
-Master of Computer Applications
+Master of Computer Applications  
 Specialization in Artificial Intelligence & Machine Learning
 
 GitHub: https://github.com/costaspinto
