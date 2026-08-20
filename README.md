@@ -151,7 +151,13 @@ Use **Try it out** to test the complete CRUD workflow.
 
 ### Swagger Screenshot
 
-_Add the final Swagger CRUD screenshot here before submission._
+<img width="3832" height="1664" alt="swagger-overview" src="https://github.com/user-attachments/assets/a7f05690-02de-4f8e-9fb1-3a41f3ba80fa" />
+<img width="2462" height="1620" alt="post-201-created" src="https://github.com/user-attachments/assets/d81168e2-3278-405c-9616-1f944548a4f4" />
+<img width="2814" height="1264" alt="put-200-updated" src="https://github.com/user-attachments/assets/6f472d75-9efa-464f-802b-5347fdce3d52" />
+<img width="2456" height="1244" alt="delete-204-no-content" src="https://github.com/user-attachments/assets/09f13b82-e492-454d-9d04-01d542c06594" />
+<img width="2494" height="1292" alt="404-not-found" src="https://github.com/user-attachments/assets/0758ee2c-cebb-4172-ba83-f9189c4f5820" />
+
+
 
 ## Example Requests
 
